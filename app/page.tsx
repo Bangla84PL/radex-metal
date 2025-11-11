@@ -3,6 +3,7 @@ import { Footer } from '@/components/layout/Footer';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { ServicesSection } from '@/components/sections/ServicesSection';
+import { GallerySection } from '@/components/sections/GallerySection';
 
 export default function HomePage() {
   return (
@@ -12,7 +13,8 @@ export default function HomePage() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
-        {/* Gallery and Contact sections will be added next */}
+        <GallerySection />
+        {/* Contact section will be added next */}
       </main>
       <Footer />
     </>
