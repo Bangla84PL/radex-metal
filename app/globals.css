@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary-black: #000000;
+  --color-primary-dark-gray: #1a1a1a;
+  --color-primary-med-gray: #2d2d2d;
+  --color-steel-gray: #4a4a4a;
+  --color-metallic-silver: #c0c0c0;
+  --color-text-white: #ffffff;
+  --color-accent-orange: #ff6b35;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-text-white);
+  background: var(--color-primary-black);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+}
+
+/* Smooth scroll behavior for anchor links */
+section {
+  scroll-margin-top: 80px;
+}
