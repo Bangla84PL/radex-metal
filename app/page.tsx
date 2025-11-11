@@ -5,12 +5,14 @@ import { AboutSection } from '@/components/sections/AboutSection';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { GallerySection } from '@/components/sections/GallerySection';
 import { ContactSection } from '@/components/sections/ContactSection';
+import { SkipToMain } from '@/components/ui/SkipToMain';
 
 export default function HomePage() {
   return (
     <>
+      <SkipToMain />
       <Navigation />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <HeroSection />
         <AboutSection />
         <ServicesSection />

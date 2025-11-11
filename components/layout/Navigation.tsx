@@ -81,6 +81,7 @@ export function Navigation() {
             <button
               onClick={() => handleNavClick('#hero')}
               className="group flex items-center gap-2"
+              aria-label="Radex Metal - powrót do góry strony"
             >
               <span className="font-bebas text-2xl text-text-white transition-colors duration-300 group-hover:text-accent-orange md:text-3xl">
                 Radex Metal
@@ -88,7 +89,7 @@ export function Navigation() {
             </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden items-center gap-8 md:flex">
+            <nav className="hidden items-center gap-8 md:flex" aria-label="Główna nawigacja">
               {NAV_ITEMS.map((item) => (
                 <button
                   key={item.id}
@@ -98,6 +99,8 @@ export function Navigation() {
                       ? 'text-accent-orange'
                       : 'text-text-lightGray hover:text-text-white'
                   }`}
+                  aria-current={activeSection === item.href.replace('#', '') ? 'page' : undefined}
+                  aria-label={`Przejdź do sekcji ${item.label}`}
                 >
                   {item.label}
 
@@ -111,13 +114,15 @@ export function Navigation() {
                   )}
                 </button>
               ))}
-            </div>
+            </nav>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               <motion.span
                 animate={isMobileMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
@@ -145,8 +150,12 @@ export function Navigation() {
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
             className="fixed inset-0 z-40 bg-primary-darkGray md:hidden"
+            id="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu nawigacyjne"
           >
-            <div className="flex h-full flex-col items-center justify-center gap-8 px-8">
+            <nav className="flex h-full flex-col items-center justify-center gap-8 px-8" aria-label="Menu mobilne">
               {NAV_ITEMS.map((item, index) => (
                 <motion.button
                   key={item.id}
@@ -159,11 +168,13 @@ export function Navigation() {
                       ? 'text-accent-orange'
                       : 'text-text-white hover:text-accent-orange'
                   }`}
+                  aria-current={activeSection === item.href.replace('#', '') ? 'page' : undefined}
+                  aria-label={`Przejdź do sekcji ${item.label}`}
                 >
                   {item.label}
                 </motion.button>
               ))}
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
