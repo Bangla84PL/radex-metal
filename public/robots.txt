@@ -1,0 +1,14 @@
+# robots.txt for radexmetal.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://radexmetal.com/sitemap.xml
+
+# Disallow admin and API routes (future)
+Disallow: /api/
+Disallow: /admin/
+
+# Crawl delay (polite crawling)
+Crawl-delay: 1
