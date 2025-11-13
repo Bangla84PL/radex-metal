@@ -1,0 +1,6 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#1a1a1a"/>
+  <rect x="50" y="50" width="700" height="500" fill="none" stroke="#c0c0c0" stroke-width="4"/>
+  <text x="400" y="280" text-anchor="middle" fill="#e8e8e8" font-family="Arial, sans-serif" font-size="42" font-weight="bold">JACHTY</text>
+  <text x="400" y="340" text-anchor="middle" fill="#a0a0a0" font-family="Arial, sans-serif" font-size="20">Yacht Fittings - 800x600</text>
+</svg>
