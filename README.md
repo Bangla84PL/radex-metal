@@ -65,6 +65,29 @@ yarn dev
 
 Visit **http://localhost:3000** to see the site.
 
+### 📸 Image Setup
+
+The website requires placeholder images for hero, services, and gallery sections.
+
+**Quick Setup:**
+```bash
+# Download all placeholder images from free sources (Unsplash, Pexels)
+chmod +x download-images.sh
+./download-images.sh
+```
+
+**Manual Setup:**
+See detailed instructions in:
+- **IMAGE_SOURCES.md** - Curated free image sources and download links
+- **IMAGE_PATHS.md** - Image paths reference for React/Next.js components
+- **public/images/*/README.md** - Specific requirements for each image directory
+
+**Required Images:**
+- Hero background (1920x1080px) - Industrial welding scene
+- About section (1200x800px) - Workshop/metalwork
+- 4 service images (800x600px) - Railings, gates, fences, yacht fittings
+- 12 gallery images (1200x900px) - Project showcase
+
 ---
 
 ## 🏗️ Project Structure
