@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { SERVICES } from '@/constants/services';
+import { TiltCard } from '@/components/animations/TiltCard';
+import { TextReveal } from '@/components/animations/TextReveal';
 
 export function ServicesSection() {
   const ref = useRef(null);
@@ -19,9 +21,11 @@ export function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center md:mb-16"
         >
-          <h2 className="font-bebas text-4xl text-text-white sm:text-5xl md:text-6xl">
-            Nasza Oferta
-          </h2>
+          <TextReveal
+            text="Nasza Oferta"
+            as="h2"
+            className="font-bebas text-4xl text-text-white sm:text-5xl md:text-6xl"
+          />
           <p className="mt-4 text-lg text-steel-gray md:text-xl">
             Profesjonalne usługi spawalnicze i obróbka metalu
           </p>
@@ -30,13 +34,13 @@ export function ServicesSection() {
         {/* Services Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:gap-8">
           {SERVICES.sort((a, b) => a.order - b.order).map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-lg"
-            >
+            <TiltCard key={service.id} tiltAmount={10} className="group">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="relative overflow-hidden rounded-lg"
+              >
               {/* Background Image */}
               <div className="absolute inset-0">
                 <div
@@ -108,7 +112,8 @@ export function ServicesSection() {
 
               {/* Border Effect on Hover */}
               <div className="absolute inset-0 border-2 border-transparent transition-colors duration-300 group-hover:border-accent-orange/50" />
-            </motion.div>
+              </motion.div>
+            </TiltCard>
           ))}
         </div>
       </div>

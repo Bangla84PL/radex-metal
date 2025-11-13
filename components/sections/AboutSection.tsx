@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ABOUT_CONTENT } from '@/constants/content';
+import { TextReveal } from '@/components/animations/TextReveal';
+import { Magnetic } from '@/components/animations/Magnetic';
+import { ParallaxScroll } from '@/components/animations/ParallaxScroll';
 
 export function AboutSection() {
   const ref = useRef(null);
@@ -23,9 +26,11 @@ export function AboutSection() {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center md:mb-16"
         >
-          <h2 className="font-bebas text-4xl text-text-white sm:text-5xl md:text-6xl">
-            {ABOUT_CONTENT.title}
-          </h2>
+          <TextReveal
+            text={ABOUT_CONTENT.title}
+            as="h2"
+            className="font-bebas text-4xl text-text-white sm:text-5xl md:text-6xl"
+          />
         </motion.div>
 
         {/* Content Grid */}
@@ -53,23 +58,24 @@ export function AboutSection() {
           </motion.div>
 
           {/* Right Column - Stats */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex items-center justify-center"
-          >
-            <div className="grid w-full gap-8 sm:grid-cols-2">
-              {ABOUT_CONTENT.stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={
-                    isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
-                  }
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  className="group relative overflow-hidden rounded-lg border-2 border-steel-gray bg-primary-medGray p-8 text-center transition-all duration-300 hover:border-metallic-silver hover:shadow-lg hover:shadow-metallic-silver/20"
-                >
+          <ParallaxScroll speed={20} direction="up" className="flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="w-full"
+            >
+              <div className="grid w-full gap-8 sm:grid-cols-2">
+                {ABOUT_CONTENT.stats.map((stat, index) => (
+                  <Magnetic key={index} strength={0.2}>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={
+                        isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
+                      }
+                      transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                      className="group relative overflow-hidden rounded-lg border-2 border-steel-gray bg-primary-medGray p-8 text-center transition-all duration-300 hover:border-metallic-silver hover:shadow-lg hover:shadow-metallic-silver/20"
+                    >
                   {/* Gradient Background on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-steel-gray/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -89,10 +95,12 @@ export function AboutSection() {
                       {stat.label}
                     </p>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                    </motion.div>
+                  </Magnetic>
+                ))}
+              </div>
+            </motion.div>
+          </ParallaxScroll>
         </div>
       </div>
     </section>
