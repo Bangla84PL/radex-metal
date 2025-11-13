@@ -3,7 +3,7 @@ import { Service } from '@/types';
 export const SERVICES: Service[] = [
   {
     id: 'balustrady',
-    title: 'Balustrady Radex Metal',
+    title: 'Balustrady',
     description: 'Balustrady balkonowe i schodowe ze stali nierdzewnej i węglowej',
     details: [
       'Balustrady balkonowe i schodowe',
@@ -17,7 +17,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'bramy',
-    title: 'Bramy Radex Metal',
+    title: 'Bramy',
     description: 'Bramy przesuwne i uchylne pod indywidualne zamówienie',
     details: [
       'Bramy przesuwne i uchylne',
@@ -31,7 +31,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'ogrodzenia',
-    title: 'Ogrodzenia Radex Metal',
+    title: 'Ogrodzenia',
     description: 'Kompletny system ogrodzeniowy z bramami i furtkami',
     details: [
       'Wypełnienie drewnem lub blachą',
@@ -45,7 +45,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'jachty',
-    title: 'Jachty Motorowe (Okucia)',
+    title: 'Okucia do Jachtów',
     description: 'Profesjonalne okucia ze stali nierdzewnej dla jachtów',
     details: [
       'Okucia ze stali nierdzewnej',
