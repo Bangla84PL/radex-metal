@@ -92,22 +92,6 @@ export function ServicesSection() {
                     </li>
                   ))}
                 </ul>
-
-                {/* Hover Indicator */}
-                <div className="mt-4 flex items-center gap-2 text-sm font-medium text-accent-orange opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <span>Dowiedz się więcej</span>
-                  <svg
-                    className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
               </div>
 
               {/* Border Effect on Hover */}
