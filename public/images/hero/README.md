@@ -1,36 +1,25 @@
 # Hero Section Images
 
-## Required Image
+## Required Images
 
-**hero-bg.jpg** - Background image for the hero section
+### hero-bg.jpg
+- **Dimensions:** 1920x1080px (16:9 aspect ratio)
+- **Format:** JPG (with WebP version recommended)
+- **Max Size:** 300KB (optimized)
+- **Theme:** Industrial welding scene with sparks, dramatic lighting
+- **Usage:** Full-viewport background for hero section
 
-### Specifications
+**Recommended Sources:**
+- Unsplash: https://unsplash.com/s/photos/welding
+- Pexels: https://www.pexels.com/search/industrial%20welding/
 
-- **Subject**: Industrial/metalworking scene (welding, steel fabrication, workshop)
-- **Mood**: Dark, professional, industrial aesthetic
-- **Dimensions**: 1920x1080px minimum (Full HD)
-- **Aspect Ratio**: 16:9 (landscape)
-- **File Size**: <1MB (will be optimized)
-- **Format**: JPG or WebP
+### workshop.jpg (About Section)
+- **Dimensions:** 1200x800px (3:2 aspect ratio)
+- **Format:** JPG (with WebP version recommended)
+- **Max Size:** 200KB (optimized)
+- **Theme:** Metalwork workshop, craftsmen at work
+- **Usage:** About section visual
 
-### Suggested Content
+## Download Instructions
 
-- Welding sparks in action
-- Steel construction work
-- Metal fabrication close-up
-- Industrial workshop environment
-- Finished metal products with dramatic lighting
-
-### Alternative
-
-If no suitable photo is available:
-- Use a dark gradient or solid color temporarily
-- Source from stock photo sites (with proper licensing):
-  - Unsplash.com (free, high quality)
-  - Pexels.com (free)
-  - Search: "welding", "metal fabrication", "steel work", "industrial"
-
-### Temporary Placeholder
-
-For development: `https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&h=1080`
-(Welding/industrial scene from Unsplash)
+Run: ./download-images.sh from project root
