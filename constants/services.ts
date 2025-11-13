@@ -12,7 +12,7 @@ export const SERVICES: Service[] = [
       'Indywidualne projekty klientów',
     ],
     icon: '/icons/railing.svg',
-    image: '/images/services/balustrady.jpg',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
     order: 1,
   },
   {
@@ -26,7 +26,7 @@ export const SERVICES: Service[] = [
       'Możliwość automatyki',
     ],
     icon: '/icons/gate.svg',
-    image: '/images/services/bramy.jpg',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
     order: 2,
   },
   {
@@ -40,7 +40,7 @@ export const SERVICES: Service[] = [
       'Ujednolicony wygląd całego ogrodzenia',
     ],
     icon: '/icons/fence.svg',
-    image: '/images/services/ogrodzenia.jpg',
+    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80',
     order: 3,
   },
   {
@@ -54,7 +54,7 @@ export const SERVICES: Service[] = [
       'Dostosowane do popularnych jachtów',
     ],
     icon: '/icons/boat.svg',
-    image: '/images/services/jachty.jpg',
+    image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80',
     order: 4,
   },
 ];

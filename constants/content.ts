@@ -5,7 +5,7 @@ export const HERO_CONTENT: HeroContent = {
   subtitle: '41 lat doświadczenia | Pomorskie Centrum Spawalnicze',
   ctaPrimary: 'Zobacz Ofertę',
   ctaSecondary: 'Skontaktuj się',
-  backgroundImage: '/images/hero/hero-bg.jpg',
+  backgroundImage: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80',
 };
 
 export const ABOUT_CONTENT: AboutContent = {
@@ -27,7 +27,7 @@ Prowadzimy również prace związane z rekonstrukcją starych wyrobów ślusarsk
       value: '1985',
     },
   ],
-  image: '/images/about/workshop.jpg',
+  image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80',
 };
 
 export const NAV_ITEMS = [
