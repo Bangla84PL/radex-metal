@@ -7,6 +7,8 @@ import { SERVICE_TYPE_LABELS } from '@/constants/services';
 import { FileUpload } from '@/components/ui/FileUpload';
 import { validateContactForm } from '@/lib/validation';
 import { ContactFormData } from '@/types';
+import { TextReveal } from '@/components/animations/TextReveal';
+import { ShimmerButton } from '@/components/animations/ShimmerButton';
 
 export function ContactSection() {
   const ref = useRef(null);
@@ -110,9 +112,11 @@ export function ContactSection() {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center md:mb-16"
         >
-          <h2 className="font-bebas text-4xl text-text-white sm:text-5xl md:text-6xl">
-            Skontaktuj się z nami
-          </h2>
+          <TextReveal
+            text="Skontaktuj się z nami"
+            as="h2"
+            className="font-bebas text-4xl text-text-white sm:text-5xl md:text-6xl"
+          />
           <p className="mt-4 text-lg text-steel-gray md:text-xl">
             Zapytaj o wycenę lub umów się na konsultację
           </p>
@@ -287,13 +291,20 @@ export function ContactSection() {
               )}
 
               {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full rounded-lg bg-accent-orange px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-accent-orange/90 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              <ShimmerButton
+                onClick={() => {
+                  // ShimmerButton wrapper - actual submit handled by nested button
+                }}
+                className="w-full rounded-lg bg-accent-orange px-8 py-4 font-semibold text-white shadow-lg shadow-accent-orange/50 transition-shadow duration-300 hover:shadow-xl hover:shadow-accent-orange/70 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Wysyłanie...' : 'Wyślij zapytanie'}
-              </button>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full h-full"
+                >
+                  {isSubmitting ? 'Wysyłanie...' : 'Wyślij zapytanie'}
+                </button>
+              </ShimmerButton>
 
               <p className="text-center text-xs text-steel-gray">
                 Pola oznaczone <span className="text-accent-orange">*</span> są wymagane

@@ -5,6 +5,8 @@ import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { GALLERY_IMAGES } from '@/constants/gallery';
 import { Lightbox } from '@/components/ui/Lightbox';
+import { TextReveal } from '@/components/animations/TextReveal';
+import { Magnetic } from '@/components/animations/Magnetic';
 
 export function GallerySection() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -42,9 +44,11 @@ export function GallerySection() {
             transition={{ duration: 0.6 }}
             className="mb-12 text-center md:mb-16"
           >
-            <h2 className="font-bebas text-4xl text-text-white sm:text-5xl md:text-6xl">
-              Nasze Realizacje
-            </h2>
+            <TextReveal
+              text="Nasze Realizacje"
+              as="h2"
+              className="font-bebas text-4xl text-text-white sm:text-5xl md:text-6xl"
+            />
             <p className="mt-4 text-lg text-steel-gray md:text-xl">
               Zobacz przykłady naszych prac
             </p>
@@ -53,14 +57,16 @@ export function GallerySection() {
           {/* Gallery Grid */}
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
             {GALLERY_IMAGES.map((image, index) => (
-              <motion.div
-                key={image.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="group relative aspect-square cursor-pointer overflow-hidden rounded-lg"
-                onClick={() => openLightbox(index)}
-              >
+              <Magnetic key={image.id} strength={0.15}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.6, delay: index * 0.05 }}
+                  className="group relative aspect-square cursor-pointer overflow-hidden rounded-lg"
+                  onClick={() => openLightbox(index)}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                 {/* Image */}
                 <Image
                   src={image.src}
@@ -97,9 +103,25 @@ export function GallerySection() {
                   </p>
                 </div>
 
+                {/* Metallic Shimmer on Hover */}
+                <motion.div
+                  className="pointer-events-none absolute inset-0"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-metallic-silver/20 to-transparent"
+                       style={{
+                         backgroundSize: '200% 100%',
+                         animation: 'shimmer 2s infinite'
+                       }}
+                  />
+                </motion.div>
+
                 {/* Border on Hover */}
                 <div className="absolute inset-0 border-2 border-transparent transition-colors duration-300 group-hover:border-accent-orange/50" />
-              </motion.div>
+                </motion.div>
+              </Magnetic>
             ))}
           </div>
 
